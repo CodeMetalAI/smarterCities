@@ -1,0 +1,11 @@
+plutosdr-fw/
+plutosdr_scripts/
+vivado*
+captured_images/
+.Xil/
+__pycache__/
+old/
+.vscode/
+config.h
+**/config.h
+copy_config.sh
