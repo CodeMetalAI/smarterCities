@@ -43,15 +43,25 @@ const char* WIFI_PASSWORD = "my_password";
 
 [Reference for GPS pins if you want to use the module](https://github.com/CodeMetalAI/smarterCities/tree/main/GPS_module_demo)
 
-[minimalist bluetooth scanner code](https://github.com/CodeMetalAI/smarterCities/tree/main/bluetoothScanner)
+[Minimalist bluetooth scanner code](https://github.com/CodeMetalAI/smarterCities/tree/main/bluetoothScanner)
 
-[slightly more advanced bluetooth scanner with matching micropython](https://github.com/CodeMetalAI/smarterCities/tree/main/bluetooth_scanner_prototype). This may have an outstanding bug with the display  
+[Slightly more advanced bluetooth scanner with matching micropython](https://github.com/CodeMetalAI/smarterCities/tree/main/bluetooth_scanner_prototype). This may have an outstanding bug with the display  
 
-[minimalist home security system](https://github.com/CodeMetalAI/smarterCities/tree/main/esp32-cam). camera sensitivity settings need to be calibrated  
+[Minimalist home security system](https://github.com/CodeMetalAI/smarterCities/tree/main/esp32-cam). camera sensitivity settings need to be calibrated  
 
-(https://github.com/CodeMetalAI/smarterCities/tree/main/roundTripTime)[Not completed, but the general idea is TCP can be used to get precise round trip times]
+[Shows GPS time even if no position lock](https://github.com/CodeMetalAI/smarterCities/tree/main/show_gps_time)
 
-get_WiF_dets.py is python to run in tandem with transmit_BT_full.ino to collect bluetooth detections over UDP from ESP32s3s
+[https://github.com/CodeMetalAI/smarterCities/tree/main/roundTripTime](Not completed, but the general idea is TCP can be used to get precise round trip times)
+
+[View available WiFi SSIDs, contains matching micropython](https://github.com/CodeMetalAI/smarterCities/tree/main/wifi_viewer)  
+
+[Spectrogram with either RTL-SDR or adalm-pluto SDR](https://github.com/CodeMetalAI/smarterCities/blob/main/rtl_quickstart.py)  
+
+[Micropy quickstart](https://github.com/CodeMetalAI/smarterCities/blob/main/microPy_quickstart.py). Notes on using rshell for the oldschool people
+
+[How to rebuild PLUTO firmware](https://github.com/CodeMetalAI/smarterCities/blob/main/pluto_vhd.sh). caution: advanced, only put custom firmware on the plutos using RAM-based firmware loading (dfu-util), custom firmware can brick the device. Firmware from the [official website](https://wiki.analog.com/university/tools/pluto/users/firmware) can be flashed in the recommended manner, but this should only be done to remedy a specific limitation of the current firmware  
+
+[]
 
 ### External Resources:
 [Reimage your Raspberry Pi](https://www.raspberrypi.com/software/)
@@ -60,7 +70,7 @@ get_WiF_dets.py is python to run in tandem with transmit_BT_full.ino to collect 
 Fewer features, but entirely in python/micropython 
 
 [Passive Radar](https://hackaday.com/2015/06/05/building-your-own-sdr-based-passive-radar-on-a-shoestring/  )  
-With a little bit of soldering, and snooping for code on line, you can have a simple passive RADAR. We're close to the airport, so you are likely to detect planes moving with the antennas that come in the RTL-SDR box. There are many good emitter choices  
+With a little bit of soldering, and snooping for code on line, you can have a simple passive RADAR. We're close to the airport, so you are likely to detect planes moving with the antennas that come in the RTL-SDR box. There are many good emitter choices e.g. [DVB-T](https://github.com/jmfriedt/passive_radar)  
 
 If you find other interesting projects and you'd like to share, please link them in the discord!!! Use trustworthy links (e.g. hackaday, github)  
 
@@ -68,19 +78,27 @@ If you find other interesting projects and you'd like to share, please link them
 ## SDRs
 <img src="readme_images/s-l1200.jpg" width="40%" alt="Description">
 
-[pyadi for adalm-pluto SDR in python](https://wiki.analog.com/resources/tools-software/linux-software/pyadi-iio)
+[pyadi for adalm-pluto SDR in python](https://wiki.analog.com/resources/tools-software/linux-software/pyadi-iio)  
+pyadi_mac.sh is not a funcitonal script to install pyadi on mac, more work is necessary.  
+the [linux shell script](https://github.com/CodeMetalAI/smarterCities/blob/main/pyadi_linux.sh) is fully functional for debian based OSs  
+We did not have a chance to test the windows instructions, good luck  
 
-[dual receive and dual transmit on Pluto](https://www.youtube.com/watch?v=ph0Kv4SgSuI)  
-this is also an introduction to commands on the microproccesor on the pluto 
+[This quickstart contains comments also with links for the pluto](https://github.com/CodeMetalAI/smarterCities/blob/main/pluto_quickstart.py)
+
+[dual receive and dual transmit on Pluto](https://www.youtube.com/watch?v=ph0Kv4SgSuI). This is also an introduction to commands on the microproccesor on the pluto 
 
 1.5 mw @ 2.4 GHz on pluto TX  
+
+RTL-SDR is receive only, driver allows programmable up to 3.2 MHz bandwidth, but only promisses 2.4 MHz without dropping. [rtl-sdr.com](https://www.rtl-sdr.com/usdr-software-updated-to-v-1-7-0/) has many resources as it is a hobbyist favorite. There're hacks to remove dithering, improve timing, calibrate oscillator, etc...  
+
+Both devices are limited by usb 2.0 bandwidth  
 
 ### MATLAB for adalm-pluto/RTL
 If MATLAB's your preferred language and you don't have a personal license, MATLAB offers a free trial that includes the Communications toolbox  
 
 ## microcontrollers
 
-![](esp32_v3_pinout.png)
+![Pin out map for esp32](esp32_v3_pinout.png)
 
 ### Micropython
 
@@ -122,6 +140,4 @@ Windows: C:\Users\[YourUsername]\Documents\Arduino\libraries
 Mac: ~/Documents/Arduino/libraries  
 Linux: ~/Arduino/libraries  
 
-
-[esp32 simulation](https://wokwi.com/esp32)
-
+[esp32 simulation](https://wokwi.com/esp32)  
