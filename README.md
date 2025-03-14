@@ -37,6 +37,7 @@ const char* WIFI_SSID = "my_SSID";
 const char* WIFI_PASSWORD = "my_password";  
 #endif  
 
+  
 [Trilateration bluetooth code used for demo](https://github.com/CodeMetalAI/smarterCities/tree/main/BT_UDP_NTP)
 
 [Trilateration with GPS for the scanners](https://github.com/CodeMetalAI/smarterCities/tree/main/BT_GPS_UDP) (Heltec LoRa with GPS module)

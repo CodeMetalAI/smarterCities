@@ -10,4 +10,4 @@ config.h
 **/config.h
 copy_config.sh
 **/.DS_Store
-**/.asv
+**/*.asv
