@@ -17,7 +17,7 @@
 # 2) rshell: simple CLI tool to get to python REPL 
 # pip install rshell esptool
 # rshell -p /dev/tty.usbserial-0001  
-# cp /Users/mbenton/Desktop/smarterCities/microPyTest.py /pyboard/ 
+# cp /Users/username/Desktop/smarterCities/microPyTest.py /pyboard/ 
 # repl
 
 

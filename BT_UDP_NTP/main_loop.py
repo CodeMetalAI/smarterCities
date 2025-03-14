@@ -20,12 +20,12 @@ from trackFunctions import kalman_filter,ProcessNoiseCV,transformSigma
 
 # Scanner positions
 SCANNER_POSITIONS = {
-    "10.26.201.166": np.array([0, 2.5]),
-    "10.26.201.166": np.array([0, 2.5]),
-    "10.26.201.166": np.array([0, 2.5]),
-    "10.26.201.166": np.array([0, 2.5]),
-    "10.26.201.166": np.array([0, 2.5]),
-    "10.26.201.166": np.array([0, 2.5]),
+    "192.168.222.113": np.array([10,0]),
+    "192.168.222.108": np.array([7.5,0]),
+    "192.168.222.93": np.array([3.5,0]),
+    "192.168.222.72": np.array([0, 3.5]),
+    "192.168.222.247": np.array([0, 7.5]),
+    "192.168.222.122": np.array([0, 10.5]),
 }
 
 RSSI_phi = .01 # process noise dB/s 
@@ -36,7 +36,7 @@ prop_factor = 12
 
 detection_batch_size = 10
 TRACK_DELETION_TIME = 30.0  # (s) before deleting inactive tracks
-BUFFER_MAX_SIZE = 1000  # Maximum buffer size
+BUFFER_MAX_SIZE = 100  # Maximum buffer size
 BUFFER_PROCESS_THRESHOLD = 0.5   
 
 ### constant velocity and estimate transmit power
@@ -72,12 +72,7 @@ def F_func(ts):
 def Q_func(ts):
     return np.diag(np.array([PROCESS_NOISE_STD,PROCESS_NOISE_STD,PROCESS_NOISE_STD/5,RSSI_phi])*ts**2)
 
-
-
 X0 = np.array((lb+ub)/2)
-
-
-
 
 def position_to_rssi(X, scanner_pos):
     """
@@ -102,23 +97,11 @@ def position_to_rssi(X, scanner_pos):
     distance_squared = z**2+(x - scanner_pos[0])**2 + (y - scanner_pos[1])**2 
     return rssi_ref - prop_factor * np.log10(distance_squared)
 
-
-
-
 # Global state
 tracks = {}  # Dictionary to store all tracks
 buffer_list = []  # Sorted buffer list for detections
 buffer_lock = threading.Lock()  # Thread safety for the buffer
 running = False  # Flag to control threads
-
-
-
-
-
-
-
-
-
 
 def update_track(mac, detection):
     """
@@ -137,6 +120,7 @@ def update_track(mac, detection):
     
     # Skip if scanner position unknown
     if scanner_ip not in SCANNER_POSITIONS:
+        print('unknown scanner: '+scanner_ip)
         return
     
     scanner_pos = SCANNER_POSITIONS[scanner_ip]
@@ -397,6 +381,7 @@ try:
             print(f"{pos['name']} ({mac[-8:]}): ({pos['x']:.1f}, {pos['y']:.1f}), RSSI ref: {pos['rssi_ref']:.1f}")
             
             # Check if this is a "Razer Stereo" device
+            # Razer Stereo (0f:db:41)
             if "Razer Stereo" in pos['name']:
                 x, y = pos['x'], pos['y']
                 # vx, vy = pos['vx'], pos['vy']

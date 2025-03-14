@@ -29,7 +29,7 @@ pip3 install -r requirements.txt
 sudo python3 setup.py install
 
 
-
+# 
 # https://github.com/CodeMetalAI/smarterCities/blob/bb4510f9a55716dbd1ac80d13af635d375851e6c
 
 

@@ -1,3 +1,14 @@
+<div align="center">
+  <a href="https://codemetal.ai">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="figs/CM_LIGHT_LOGO.png">
+      <source media="(prefers-color-scheme: light)" srcset="figs/CM_DARK_LOGO.png">
+      <img src="readme_images/CM_DARK_LOGO.png">
+    </picture>
+  </a>
+</div>
+
+
 # Smarter Cities 
 
 This hackathon focuses on advancing operations in smart cities through innovative use of existing infrastructure and emerging technologies, with particular emphasis on protecting personnel while maintaining operational effectiveness. The challenge explores the dual nature 
@@ -15,6 +26,9 @@ and a section with the demos
 
 
 ### Resources in this repo:
+
+[If you need to reimage your Raspberry Pi](https://www.raspberrypi.com/software/)
+
 get_WiF_dets.py is python to run in tandem with transmit_BT_full.ino to collect bluetooth detections over UDP from ESP32s3s
 
 ### External Resources:
@@ -41,15 +55,19 @@ If MATLAB's your preferred language and you don't have a personal license, MATLA
 
 ![](esp32_v3_pinout.png)
 
-### micropython
+### Micropython
 
-[Numpy on microcontroller](https://github.com/v923z/micropython-ulab)  this may prove more trouble than it's worth to most...   
+To use python on microcontrollers, you must [download firmware and flash it](https://micropython.org/download/ESP32_GENERIC_S3/)  
+
+This alone will not have the full functionality of python, there is no numpy or pip by default  
+
+[Numpy on microcontroller](https://github.com/v923z/micropython-ulab)  this may prove more trouble than it's worth to most...  
 
 #### Thonny
-The Thonny IDE is the recommended method to code in micropython
+The Thonny IDE is the recommended method to code in micropython. It comes preinstalled in Raspbian and board management is simply handled in the GUI on the bottom bar, and package management is in Tools > Manage Plugins  
 
-#### PlatformIO
-PlatformIO is a vscode extension for micropython, supports most of the same, but board managmenet is done with an .ini file
+### PlatformIO (c++ or python)
+PlatformIO is a vscode extension for micropython, supports most of the same, but board managmenet is done with an .ini file  
 
 ### Arduino IDE (c++ microcontrollers)
 use board/library manager to install necessary items, File>Examples contains many good examples of basic functionality
