@@ -382,7 +382,9 @@ try:
             
             # Check if this is a "Razer Stereo" device
             # Razer Stereo (0f:db:41)
-            if "Razer Stereo" in pos['name']:
+            # 44:5e:cd:0f:db:41
+            # if "Razer Stereo" in pos['name']:
+            if mac == "44:5e:cd:0f:db:41":
                 x, y = pos['x'], pos['y']
                 # vx, vy = pos['vx'], pos['vy']
                 
@@ -663,10 +665,10 @@ except KeyboardInterrupt:
 # P = P0
 
 
-# df = pd.read_csv('detections_0311.csv')
+df = pd.read_csv('detections_0311.csv')
 # df.name == 'R'
-# device_id = 'Razer Stereo'
-# df_1 = df.loc[df['name'] == device_id]
+device_id = 'Razer Stereo'
+df_1 = df.loc[df['name'] == device_id]
 # df_1 = df_1.sort_values('timestamp')
 # delta = np.diff(df_1.timestamp)
 # np.sort(df_1.timestamp)

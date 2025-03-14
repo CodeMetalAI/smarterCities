@@ -1,10 +1,8 @@
+
+
 <div align="center">
   <a href="https://codemetal.ai">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="figs/CM_LIGHT_LOGO.png">
-      <source media="(prefers-color-scheme: light)" srcset="figs/CM_DARK_LOGO.png">
-      <img src="readme_images/CM_DARK_LOGO.png">
-    </picture>
+    <img src="readme_images/CM_LIGHT_LOGO.png" width="80%" alt="Description">
   </a>
 </div>
 
@@ -69,7 +67,7 @@ The Thonny IDE is the recommended method to code in micropython. It comes preins
 ### PlatformIO (c++ or python)
 PlatformIO is a vscode extension for micropython, supports most of the same, but board managmenet is done with an .ini file  
 
-### Arduino IDE (c++ microcontrollers)
+### Arduino IDE (c++)
 use board/library manager to install necessary items, File>Examples contains many good examples of basic functionality
 #### boards:  
 esp32 by Espressif  
