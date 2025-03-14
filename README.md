@@ -21,20 +21,49 @@ of urban technology both as a tool for special operations and as a potential vul
 References to tools and sample repos for the various hardware
 and a section with the demos
 
+## WiFi
+ssid: MetalOpsHackathon2025  
+pswd: raspi-FPGA-hacking  
+
+<img src="wifiQrCode.png" width="40%" alt="Description">
 
 
 ### Resources in this repo:
 
-[If you need to reimage your Raspberry Pi](https://www.raspberrypi.com/software/)
+Note: a config.h file must be created for arduino demos that use WiFi:  
+#ifndef CONFIG_H  
+#define CONFIG_H  
+const char* WIFI_SSID = "my_SSID";  
+const char* WIFI_PASSWORD = "my_password";  
+#endif  
+
+[Trilateration bluetooth code used for demo](https://github.com/CodeMetalAI/smarterCities/tree/main/BT_UDP_NTP)
+
+[Trilateration with GPS for the scanners](https://github.com/CodeMetalAI/smarterCities/tree/main/BT_GPS_UDP) (Heltec LoRa with GPS module)
+
+[Reference for GPS pins if you want to use the module](https://github.com/CodeMetalAI/smarterCities/tree/main/GPS_module_demo)
+
+[minimalist bluetooth scanner code](https://github.com/CodeMetalAI/smarterCities/tree/main/bluetoothScanner)
+
+[slightly more advanced bluetooth scanner with matching micropython](https://github.com/CodeMetalAI/smarterCities/tree/main/bluetooth_scanner_prototype). This may have an outstanding bug with the display  
+
+[minimalist home security system](https://github.com/CodeMetalAI/smarterCities/tree/main/esp32-cam). camera sensitivity settings need to be calibrated  
+
+(https://github.com/CodeMetalAI/smarterCities/tree/main/roundTripTime)[Not completed, but the general idea is TCP can be used to get precise round trip times]
 
 get_WiF_dets.py is python to run in tandem with transmit_BT_full.ino to collect bluetooth detections over UDP from ESP32s3s
 
 ### External Resources:
+[Reimage your Raspberry Pi](https://www.raspberrypi.com/software/)
+
 [Another bluetooth RSSI trilateration on github](https://github.com/avibn/indoor-positioning-trilateration/tree/main).  
 Fewer features, but entirely in python/micropython 
 
 [Passive Radar](https://hackaday.com/2015/06/05/building-your-own-sdr-based-passive-radar-on-a-shoestring/  )  
-With a little bit of soldering, and snooping for code on line, you can have a simple passive RADAR. We're close to the airport, so you are likely to detect planes moving with the antennas that come in the RTL-SDR box. There are many good emitter choices   
+With a little bit of soldering, and snooping for code on line, you can have a simple passive RADAR. We're close to the airport, so you are likely to detect planes moving with the antennas that come in the RTL-SDR box. There are many good emitter choices  
+
+If you find other interesting projects and you'd like to share, please link them in the discord!!! Use trustworthy links (e.g. hackaday, github)  
+
 
 ## SDRs
 <img src="readme_images/s-l1200.jpg" width="40%" alt="Description">
